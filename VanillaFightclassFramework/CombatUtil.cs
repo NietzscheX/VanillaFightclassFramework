@@ -45,11 +45,11 @@ class CombatUtil
     public static void Start()
     {
         FightEvents.OnFightLoop += FightEvents_OnFightLoop;
-        FightEvents.OnFightEnd += FightEventsOnOnFightEnd;
+        FightEvents.OnFightEnd += FightEvents_OnFightEnd;
         EventsLuaWithArgs.OnEventsLuaWithArgs += CastingEventHandler;
     }
 
-    private static void FightEventsOnOnFightEnd(ulong guid1)
+    private static void FightEvents_OnFightEnd(ulong guid1)
     {
         _disableTargeting = false;
     }
@@ -68,6 +68,7 @@ class CombatUtil
         EventsLuaWithArgs.OnEventsLuaWithArgs -= CastingEventHandler;
     }
 
+    // 这里处理时间？
     private static void CastingEventHandler(LuaEventsId id, List<string> args)
     {
 
